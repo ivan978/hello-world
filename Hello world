@@ -1,8 +1,53 @@
-#include <stdio.h>
+//#include <stdio.h>
+#include <windows.h>
+
+string session;
 
 void main() {
-  print("Hello World!")
-  delay(1000)
-  print("Goodbye World!")
-  return 0;
+int mainbox = MessageBox(hWnd,"Tell me what time is it okay?","Is this world?", MB_OKCANCEL);
+  if (mainbox == 1) {
+  carryon() ;
+  } else {
+  goodbyeson();
+  }
+  return mainbox;
+  }
+
+void carryon() {
+  int carrybox = MessageBox(hWnd,"Is it morning now?", "Notice Me Senpai", MB_YESNO);
+
+  switch(carrybox){
+  case IDYES:
+  morning();
+  break;
+  case IDNO:
+  night();
+  break;
+  default:
+  morning();
+  break;
+  }
+}
+
+void morning(){
+char buff[100];
+string session = "morning" ;
+sprintf_s(buff,"%s",session.c_str());
+cout << buff;
+printtheresultouthahahahaha();
+}
+
+
+void night(){
+char buff[100];
+string session = "night" ;
+sprintf_s(buff,"%s",session.c_str());
+cout << buff;
+printtheresultouthahahahaha();
+}
+
+void printtheresultouthahahahaha(session){
+print(buff, "World!");
+delay(2000);
+return 0;
 }
